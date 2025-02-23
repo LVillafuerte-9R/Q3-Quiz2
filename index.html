@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- B5 SETUP -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- JS SETUP -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- CSS SETUP -->
+  <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Online Ticket Center</title>
+</head>
+<body>
+   <div class="container text-center mt-4">
+        <h2 class="mb-4">✩░▒▓▆▅▃▂▁𝐓𝐢𝐜𝐤𝐞𝐭𝐢𝐧𝐠 𝐂𝐞𝐧𝐭𝐞𝐫▁▂▃▅▆▓▒░✩</h2>
+        
+        <button class="btn btn-secondary" onclick="toggleSection('personalInfo')">𝓟𝓮𝓻𝓼𝓸𝓷𝓪𝓵 𝓘𝓷𝓯𝓸𝓻𝓶𝓪𝓽𝓲𝓸𝓷</button>
+        <div id="personalInfo" class="hidden mt-3">
+            <p>🅔🅝🅣🅔🅡 🅨🅞🅤🅡 🅓🅔🅣🅐🅘🅛🅢:</p>
+            <input type="text" id="name" class="form-control mb-2" placeholder="Your Name">
+            <input type="email" id="email" class="form-control mb-2" placeholder="Your Email">
+            <button class="btn btn-dark" onclick="submitInfo()">✌𝓢𝓾𝓫𝓶𝓲𝓽✌</button>
+        </div>
+        
+        <button class="btn btn-secondary" onclick="toggleSection('ticketPrice')">𝓣𝓲𝓬𝓴𝓮𝓽 𝓟𝓻𝓲𝓬𝓮</button>
+        <div id="ticketPrice" class="hidden mt-3">
+            <p>🅒🅗🅔🅒🅚 🅨🅞🅤🅡 🅣🅘🅒🅚🅔🅣 🅟🅡🅘🅒🅔:</p>
+            <select id="seat" class="form-select mb-2">
+                <option value="Patron">ᴘᴀᴛʀᴏɴ</option>
+                <option value="Regular">ʀᴇɢᴜʟᴀʀ</option>
+            </select>
+            <select id="userType" class="form-select mb-2">
+                <option value="Student">ꜱᴛᴜᴅᴇɴᴛ</option>
+                <option value="Adult">ᴀᴅᴜʟᴛ</option>
+            </select>
+            <button class="btn btn-dark" onclick="showTicketPrice()">✌𝓒𝓱𝓮𝓬𝓴 𝓟𝓻𝓲𝓬𝓮✌</button>
+        </div>
+        
+        <button class="btn btn-secondary" onclick="toggleSection('printTicket')">𝓟𝓻𝓲𝓷𝓽 𝓣𝓲𝓬𝓴𝓮𝓽</button>
+        <div id="printTicket" class="hidden mt-3">
+            <p>🅨🅞🅤🅡 🅣🅘🅒🅚🅔🅣:</p>
+            <img src="https://i.pinimg.com/736x/e5/60/88/e5608833cade795190f1424629d3f1e4.jpg" alt="Cinema Ticket" class="img-fluid" width="200">
+            <br>
+            <button class="btn btn-danger mt-2" onclick="alert('Your ticket has been printed! Please check your email.')">𝐏𝐫𝐢𝐧𝐭 𝐓𝐢𝐜𝐤𝐞𝐭</button>
+            <button class="btn btn-dark mt-2" onclick="window.location.reload()">🍺🥂🍸 𝓑𝓾𝔂 𝓜𝓸𝓻𝓮 𝓣𝓲𝓬𝓴𝓮𝓽𝓼 🍻🍷🍹</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(id) {
+            var section = document.getElementById(id);
+            section.classList.toggle("hidden");
+        }
+
+        function showTicketPrice() {
+            var seat = document.getElementById("seat").value;
+            var user = document.getElementById("userType").value;
+            var price = 0;
+            
+            if (seat === "Patron" && user === "Student") {
+                price = 10;
+            } else if (seat === "Patron" && user === "Adult") {
+                price = 15;
+            } else if (seat === "Regular" && user === "Student") {
+                price = 8;
+            } else {
+                price = 12;
+            }
+            
+            alert("Ticket Price: $" + price);
+        }
+
+        function submitInfo() {
+            var name = document.getElementById("name").value.trim();
+            var email = document.getElementById("email").value.trim();
+            if (name === "" || email === "") {
+                alert("Please fill out all fields.");
+            } else {
+                alert("Thank you for sharing your Personal Information!");
+            }
+        }
+    </script>
+
+    <!-- Footer Section -->
+        <div class="footer">
+           <a href="https://lvillafuerte-9r.github.io/2QEX2/">Lauren Mary R. Villafuerte | 9-Ruby</a>
+</body>
+</html>
